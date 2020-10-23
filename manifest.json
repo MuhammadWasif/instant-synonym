@@ -1,0 +1,19 @@
+{
+  "name": "Instant Synonym",
+  "description": "Get defination and synonyms of word with one click",
+  "version": "0.0.1",
+  "manifest_version": 2,
+  "permissions": ["contextMenus", "activeTab", "tabs"],
+  "background": {
+    "scripts": ["src/index.js"],
+    "persistent": false
+  },
+  "browser_action": {
+    "default_icon": "src/assets/icon.png"
+  },
+  "icons": {
+    "16": "src/assets/icon-16.png",
+    "48": "src/assets/icon-48.png",
+    "128": "src/assets/icon-128.png"
+  }
+}
