@@ -3,7 +3,7 @@
   "description": "Get defination and synonyms of word with one click",
   "version": "0.0.1",
   "manifest_version": 2,
-  "permissions": ["contextMenus", "activeTab", "tabs"],
+  "permissions": ["contextMenus"],
   "background": {
     "scripts": ["src/index.js"],
     "persistent": false
