@@ -16,25 +16,25 @@ chrome.runtime.onInstalled.addListener(function () {
     id: MENU_ITEM_ID,
     contexts: ['selection'],
   });
+});
 
-  chrome.contextMenus.onClicked.addListener(async (info) => {
-    if (info.menuItemId === MENU_ITEM_ID) {
-      const textSelected = info.selectionText;
+chrome.contextMenus.onClicked.addListener(async (info) => {
+  if (info.menuItemId === MENU_ITEM_ID) {
+    const textSelected = info.selectionText;
 
-      try {
-        const result = await fetchSynonyms(textSelected);
-        const { meanings } = result;
+    try {
+      const result = await fetchSynonyms(textSelected);
+      const { meanings } = result;
 
-        const { definition, synonyms } = meanings[0].definitions[0];
+      const { definition, synonyms } = meanings[0].definitions[0];
 
-        const synonymString = synonyms
-          ? synonyms.map((synonym) => synonym)
-          : 'No synonyms found!';
+      const synonymString = synonyms
+        ? synonyms.map((synonym) => synonym)
+        : 'No synonyms found!';
 
-        alert(definition + '\n\n' + synonymString);
-      } catch (error) {
-        alert('An error occurred while finding meaning of this word!');
-      }
+      alert(definition + '\n\n' + synonymString);
+    } catch (error) {
+      alert('An error occurred while finding meaning of this word!');
     }
-  });
+  }
 });
